@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Net.Http.Headers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
@@ -6,10 +10,6 @@ using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.AspNetCore.WebUtilities;
-using Microsoft.Net.Http.Headers;
 
 namespace SecureSite.Utilities
 {
@@ -18,6 +18,7 @@ namespace SecureSite.Utilities
         // If you require a check on specific characters in the IsValidFileExtensionAndSignature
         // method, supply the characters in the _allowedChars field.
         private static readonly byte[] _allowedChars = { };
+
         // For more file signatures, see the File Signatures Database (https://www.filesignatures.net/)
         // and the official specifications for the file types you wish to add.
         private static readonly Dictionary<string, List<byte[]>> _fileSignature = new Dictionary<string, List<byte[]>>
@@ -75,7 +76,7 @@ namespace SecureSite.Utilities
             var trustedFileNameForDisplay = WebUtility.HtmlEncode(
                 formFile.FileName);
 
-            // Check the file length. This check doesn't catch files that only have 
+            // Check the file length. This check doesn't catch files that only have
             // a BOM as their content.
             if (formFile.Length == 0)
             {

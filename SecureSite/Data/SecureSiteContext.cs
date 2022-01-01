@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using SecureSite.Models;
 
 namespace SecureSite.Data
 {
     public class SecureSiteContext : DbContext
     {
-        public SecureSiteContext (DbContextOptions<SecureSiteContext> options)
+        public SecureSiteContext(DbContextOptions<SecureSiteContext> options)
             : base(options)
         {
         }

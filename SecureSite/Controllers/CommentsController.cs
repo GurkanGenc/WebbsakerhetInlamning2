@@ -1,13 +1,12 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using SecureSite.Data;
+using SecureSite.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using SecureSite.Data;
-using SecureSite.Models;
 
 namespace SecureSite.Controllers
 {
@@ -19,7 +18,7 @@ namespace SecureSite.Controllers
         public CommentsController(SecureSiteContext context)
         {
             _context = context;
-            _allowedTags = new List<string>() {"<b>", "</b>", "<i>", "</i>"};
+            _allowedTags = new List<string>() { "<b>", "</b>", "<i>", "</i>" };
         }
 
         // GET: Comments
